@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 const characterSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  //userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   name: { type: 'String', unique: true, required: true},
   race: { type: 'String', required: true},
   classification: { type: 'String', required: true},
