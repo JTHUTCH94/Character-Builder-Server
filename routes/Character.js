@@ -4,13 +4,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const Character = require('../character-model');
+const User = require('../models/user');
 
 const router = express.Router();
 
 router.get('/characters', (req, res) => {
-  Character.find()
-    .then(response => {
-      res.json(response);
+  User.findById(req.user.id)
+    .populate('characters')
+    .then(user => {
+      res.json(user.characters);
     })
     .catch(err => {
       console.log(err);
