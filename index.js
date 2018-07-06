@@ -4,10 +4,10 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const Character = require('./character-model');
-const mongoose = require('mongoose');
-const passport = require('passport');
+//const mongoose = require('mongoose');
+//const passport = require('passport');
 
-const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
+//const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
@@ -30,12 +30,12 @@ app.use(
   })
 );
 
-passport.use(localStrategy);
-passport.use(jwtStrategy);
+//passport.use(localStrategy);
+//passport.use(jwtStrategy);
 
-app.use('/auth', authRouter);
+//app.use('/auth', authRouter);
 
-app.use(passport.authenticate('jwt', {session: false, failWithError: true}));
+//app.use(passport.authenticate('jwt', {session: false, failWithError: true}));
 
 app.use(express.json());
 

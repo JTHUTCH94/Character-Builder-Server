@@ -9,10 +9,9 @@ const User = require('../models/user');
 const router = express.Router();
 
 router.get('/characters', (req, res) => {
-  User.findById(req.user.id)
-    .populate('characters')
-    .then(user => {
-      res.json(user.characters);
+  Character.find()
+    .then(characters => {
+      res.json(characters);
     })
     .catch(err => {
       console.log(err);
